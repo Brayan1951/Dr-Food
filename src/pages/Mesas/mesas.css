@@ -1,0 +1,41 @@
+
+.mesas{
+    height: 100%;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,250px);
+    justify-content: center;
+
+}
+
+.mesa{
+    background-color: red;
+    border-radius: 10px;
+    height: 120px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+
+}
+.nav_modal_mesa{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-close{
+    background-color: red;
+    width: 70px;
+    height: 70px;
+font-size: 40px;
+}
+.btn-add_Pedidos{
+    background-color: rgb(56, 199, 56);
+    width: 100%;
+    height: 50px;
+    font-size: 35px;
+    font-weight: bold;
+}
