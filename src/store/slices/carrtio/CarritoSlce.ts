@@ -14,11 +14,14 @@ export const CarritoSlice = createSlice({
     name: 'Carrito',
     initialState,
     reducers: {
-        increment: (state,/*action */) => {
+        add: (state, action) => {
+            // console.log(action);
+            state.carrito = [...state.carrito, action.payload]
+
         },
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, } = CarritoSlice.actions
+export const { add, } = CarritoSlice.actions
 export default CarritoSlice.reducer

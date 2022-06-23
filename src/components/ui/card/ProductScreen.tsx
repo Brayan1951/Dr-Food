@@ -1,15 +1,20 @@
-import React from 'react'
 import { useState } from 'react';
-import { useForm } from '../../../hooks/useForm';
 import { ProductList } from './ProductList';
 import { tiposProduct } from '../../../store/data/producto';
 import { ProductoModal } from './ProductoModal';
 import { CarritoScreen } from '../carrito/CarritoScreen';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
+import { Navigate } from 'react-router-dom';
 
 export const ProductScreen = () => {
-
-    // cosnt {}useForm({tipo})
     const [tipo, settipo] = useState('Cheveres')
+    const { activeMesa } = useSelector((state: RootState) => state.mesas)
+
+    if (!activeMesa) {
+        return <Navigate to={'/'} />
+
+    }
 
     const change = (value: any) => {
 

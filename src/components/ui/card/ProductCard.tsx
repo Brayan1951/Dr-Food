@@ -1,13 +1,16 @@
 import React from 'react'
 import { Producto } from '../../../interfaces/interfaces';
+import { useDispatch } from 'react-redux';
+import { add } from '../../../store/slices/carrtio/CarritoSlce';
 
-export const ProductCard = ({ nombre, precio, agregados }: Producto) => {
+export const ProductCard = (product: Producto) => {
+    const dispatch = useDispatch()
 
     return (
-        <div className='card'>
+        <div onClick={() => dispatch(add(product))} className='btn card'>
 
-            <div>{nombre}</div>
-            <div>S./{precio}</div>
+            <div>{product.nombre}</div>
+            <div>S./{product.precio}</div>
         </div>
     )
 }

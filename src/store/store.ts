@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import ProductosSlice from './slices/productos/ProductosSlice';
 import MesasSlice from './slices/mesas/MesasSlice';
 import ModalSlice from './slices/uiModal/Modal';
+import CarritoSlice from './slices/carrtio/CarritoSlce';
 
 export const store = configureStore({
     reducer: {
@@ -9,6 +10,8 @@ export const store = configureStore({
         uimodal: ModalSlice,
         // data
         data: ProductosSlice,
+        // carrtio
+        carrito: CarritoSlice
 
     },
 })
