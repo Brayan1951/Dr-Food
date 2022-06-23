@@ -23,9 +23,6 @@ export const agregados: Agregados[] = [
         nombre: "Huevo",
         precio: 1
     }, {
-        nombre: "Huevo",
-        precio: 1
-    }, {
         nombre: "Jamón",
         precio: 1,
     }, {

@@ -4,7 +4,10 @@
 }
 
 .select_products {
-text-align: center;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-around;
 }
 .select_products  select{
     font-size: 25px;
@@ -29,9 +32,65 @@ width: 300px;
     align-items: center;
     font-size: 25px;
     font-weight: bold;
-    /* height: 200px; */
+    height: 150px;
     background-color: rgb(219, 149, 68);
     margin: 10px;
     padding: 10px;
     
 }
+
+.modal-cremas{
+    display: grid;
+grid-template-columns: repeat(auto-fill,150px);
+justify-content: center;
+align-items: center;
+}
+.modal-crema{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.crema{
+
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100px;
+height: 50px;
+margin: 10px;
+padding: 10px;
+/* border: 1px solid black; */
+
+}
+
+
+.crema-Mayonesa{
+    background-color: whitesmoke;
+}
+.crema-Ketchup{
+    background-color: red;
+}
+.crema-Aji{
+    background-color: yellow;
+}
+.crema-Golf{
+    background-color: orange;
+}
+
+.modal-adicionales{
+    display: grid;
+grid-template-columns: repeat(auto-fill,150px);
+justify-content: center;
+align-items: center;
+}
+.modal-adicional{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: azure;
+    margin: 10px;
+    padding: 10px;
+}
+

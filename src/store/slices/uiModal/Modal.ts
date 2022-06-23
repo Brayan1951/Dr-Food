@@ -1,25 +1,33 @@
 import { createSlice } from '@reduxjs/toolkit'
 export interface uiMoidal {
-    modalOpen: boolean
+    modalOpenMesa: boolean
+    modalOpenCarrito: boolean
 }
 
 const initialState: uiMoidal = {
-    modalOpen: false
+    modalOpenMesa: false,
+    modalOpenCarrito: false
 }
 
 export const ModalSlice = createSlice({
     name: 'Modal',
     initialState,
     reducers: {
-        uiopenModal: (state) => {
-            state.modalOpen = true
+        uiopenModalMesa: (state) => {
+            state.modalOpenMesa = true
         },
-        uicloseModal: (state) => {
-            state.modalOpen = false
+        uicloseModalMesa: (state) => {
+            state.modalOpenMesa = false
+        },
+        uiopenModalCarrito: (state) => {
+            state.modalOpenCarrito = true
+        },
+        uicloseModalCarrito: (state) => {
+            state.modalOpenCarrito = false
         },
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { uiopenModal, uicloseModal } = ModalSlice.actions
+export const { uiopenModalMesa, uicloseModalMesa, uicloseModalCarrito, uiopenModalCarrito } = ModalSlice.actions
 export default ModalSlice.reducer
