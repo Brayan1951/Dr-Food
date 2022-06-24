@@ -74,6 +74,15 @@ font-size: 40px;
   font-weight: bold;
   align-items: center;
 }
+.btn-print{
+  display: flex;
+  justify-content: center;
+  background-color: rgb(238, 241, 34);
+  height: 50px;
+  font-size: 25px;
+  font-weight: bold;
+  align-items: center;
+}
 .btn-cancel{
   display: flex;
   justify-content: center;

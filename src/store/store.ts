@@ -3,15 +3,17 @@ import ProductosSlice from './slices/productos/ProductosSlice';
 import MesasSlice from './slices/mesas/MesasSlice';
 import ModalSlice from './slices/uiModal/Modal';
 import CarritoSlice from './slices/carrtio/CarritoSlce';
+import VentasSlice from './slices/ventas/VentasSlice';
 
 export const store = configureStore({
     reducer: {
         mesas: MesasSlice,
         uimodal: ModalSlice,
         // data
-        data: ProductosSlice,
+        // data: ProductosSlice,
         // carrtio
-        carrito: CarritoSlice
+        carrito: CarritoSlice,
+        ventas: VentasSlice
 
     },
 })

@@ -5,7 +5,8 @@ import { uicloseModalMesa } from '../../store/slices/uiModal/Modal';
 import { NavLink } from 'react-router-dom';
 import './mesas.css'
 import '../../components/ui/card/card.css';
-import { deleteProductsMesa } from '../../store/slices/mesas/MesasSlice';
+import { cleanMesa, deleteProductsMesa } from '../../store/slices/mesas/MesasSlice';
+import { addVenta } from '../../store/slices/ventas/VentasSlice';
 
 
 
@@ -22,9 +23,22 @@ export const MesaModal = () => {
         dispatch(deleteProductsMesa({ idMesa: activeMesa.id - 1, idProduct: id }))
     }
 
+    const imprimir = () => {
+        dispatch(addVenta(activeMesa))
+        dispatch(cleanMesa({ idMesa: activeMesa.id - 1 }))
+        dispatch(uicloseModalMesa())
+
+
+    }
+
     return (
         <Modal ariaHideApp={false} isOpen={modalOpenMesa} onRequestClose={closeModal}>
             <div className='nav_modal-header'>
+                <button onClick={imprimir} className='btn btn-print'>
+
+                    Imprimir Pedidos
+                </button>
+
                 <h1>Mesa #{activeMesa?.id}</h1>
                 <button className='btn btn-close' onClick={closeModal}>X</button>
             </div>

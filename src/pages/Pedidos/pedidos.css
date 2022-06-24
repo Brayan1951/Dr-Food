@@ -1,3 +1,25 @@
 .pedidos{
     height: 100%;
 }
+.pedido_card{
+    background-color: bisque;
+    margin: 20px 10px;
+}
+.pedido_card{
+    background-color: bisque;
+    margin: 20px 10px;
+    height: 100px;
+}
+
+.pedido_card-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 26px;
+}
+
+.pedido_card hr{
+    /* height: 10px; */
+    width: 90%;
+    border: 1px solid black;
+   }

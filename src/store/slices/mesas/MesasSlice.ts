@@ -38,11 +38,19 @@ export const MesasSlice = createSlice({
             state.mesas[action.payload.idMesa] = state.activeMesa
             state.mesas[action.payload.idMesa].state = 'vacio'
         },
+        cleanMesa: (state, action) => {
+            state.mesas[action.payload.idMesa] = {
+                id: action.payload.idMesa + 1,
+                products: [],
+                state: 'vacio',
+            }
+        },
+
 
 
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { setActiveMesa, addProductsMesa, deleteProductsMesa } = MesasSlice.actions
+export const { setActiveMesa, addProductsMesa, deleteProductsMesa, cleanMesa } = MesasSlice.actions
 export default MesasSlice.reducer
