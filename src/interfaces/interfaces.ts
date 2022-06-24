@@ -2,7 +2,7 @@ export interface MesaState {
     id: number,
     products: Producto[],
     state: 'vacio' | 'completo'
-    total?: number
+    total: number
 }
 
 export interface Cremas {

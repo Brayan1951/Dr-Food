@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { Producto } from '../../../interfaces/interfaces';
+import { Producto, Agregados } from '../../../interfaces/interfaces';
 export interface CarritoState {
     carrito: Producto[],
-    productoActive: Producto
+    productoActive: Producto,
+    total: number
 }
 
 const initialState: CarritoState = {
@@ -14,7 +15,7 @@ const initialState: CarritoState = {
         agregados: [],
         cremas: [],
         descripcion: ''
-    }
+    }, total: 0
 }
 
 export const CarritoSlice = createSlice({
@@ -22,7 +23,18 @@ export const CarritoSlice = createSlice({
     initialState,
     reducers: {
         add: (state, action) => {
+            const agregados = <Agregados[]>action.payload.agregados
+
+            const temp = agregados.map(prev => prev.precio).reduce((prev, curr) => prev + curr, 0)
+            action.payload.precio += temp
+
             state.carrito = [...state.carrito, action.payload]
+
+            const tempTotal = state.carrito.map(prev => prev.precio)
+                .reduce((prev, curr) => prev + curr, 0)
+
+
+            state.total = tempTotal
 
         },
         deleted: (state, action) => {

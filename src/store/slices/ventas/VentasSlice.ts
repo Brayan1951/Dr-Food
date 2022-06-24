@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { Producto } from '../../../interfaces/interfaces';
 export interface VentaState {
-    productos: Producto[],
+    products: Producto[],
     fecha: Date
+    total: number
 }
 interface VentasState {
     ventas: VentaState[]
@@ -17,8 +18,9 @@ export const VentasSlice = createSlice({
     reducers: {
         addVenta: (state, action) => {
 
-            const temp = { fecha: new Date(), ...action.payload.products }
+            const temp = { fecha: new Date().toLocaleString('es-US'), ...action.payload }
             state.ventas = [...state.ventas, temp]
+
 
 
         },

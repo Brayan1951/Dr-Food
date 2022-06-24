@@ -12,8 +12,8 @@
     padding: 20px;
     
     background-color: rgb(217, 223, 219);
-    min-width: 300px ;
-    height: 180px;
+    min-width: 400px ;
+    height: 190px;
 }
 .carrito_productos hr{
     border: 1px solid black;
@@ -44,10 +44,17 @@ font-weight: bold;
 }
 .carrito_products-body{
 justify-content: center;
+font-size: 17px;
 
 }
 .carrito_products-footer{
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-top: 0;
+}
+.carrito_products-footer h3{
+    margin-top: 0;
+}
+h4{
+    margin: 15px 0;
 }

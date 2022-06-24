@@ -34,7 +34,7 @@ export const MesaModal = () => {
     return (
         <Modal ariaHideApp={false} isOpen={modalOpenMesa} onRequestClose={closeModal}>
             <div className='nav_modal-header'>
-                <button onClick={imprimir} className='btn btn-print'>
+                <button disabled={(activeMesa.products.length > 0) ? false : true} onClick={imprimir} className='btn btn-print'>
 
                     Imprimir Pedidos
                 </button>
@@ -63,13 +63,13 @@ export const MesaModal = () => {
                                 <div className='card-m'>
                                     <div className="card-cremas">
                                         Cremas: {product.cremas?.length === 0 && 'no hay cremas'}
-                                        {product.cremas?.map(crema => (<span>| {crema} |</span>))}
+                                        {product.cremas?.map((crema, id) => (<span key={id}>| {crema} |</span>))}
 
                                     </div>
                                     <div className="card-agregados">
                                         Adicionales: {product.agregados?.length === 0 && 'no hay agregados'}
                                         {
-                                            product.agregados?.map(agregado => (<span>| {agregado.nombre} | </span>))
+                                            product.agregados?.map((agregado, id) => (<span key={id}>| {agregado.nombre} | </span>))
                                         }
                                     </div>
                                 </div>
@@ -83,7 +83,16 @@ export const MesaModal = () => {
 
                 }
             </div>
-
+            <hr />
+            {
+                activeMesa.total > 0 ?
+                    <div className='modal_footer'>
+                        S./ {activeMesa.total}
+                    </div>
+                    : <div className='modal_footer'>
+                        No hay productos
+                    </div>
+            }
 
         </Modal>
     )

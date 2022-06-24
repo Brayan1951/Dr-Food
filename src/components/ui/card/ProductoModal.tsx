@@ -26,6 +26,7 @@ export const ProductoModal = () => {
         }
 
         dispatch(add(tempProduct))
+        setAgregadosState([])
         closeModal()
     }
     const cremaSelect = (crema: string) => {

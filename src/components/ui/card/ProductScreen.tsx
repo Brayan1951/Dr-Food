@@ -12,7 +12,7 @@ import { cleanCarrito } from '../../../store/slices/carrtio/CarritoSlce';
 export const ProductScreen = () => {
     const [tipo, settipo] = useState('Cheveres')
     const { activeMesa } = useSelector((state: RootState) => state.mesas)
-    const { carrito } = useSelector((state: RootState) => state.carrito)
+    const { carrito, total } = useSelector((state: RootState) => state.carrito)
     const dispatch = useDispatch()
     if (activeMesa.id === 0) {
         return <Navigate to={'/'} />
@@ -29,7 +29,7 @@ export const ProductScreen = () => {
     }
 
     const AddProductMesa = () => {
-        dispatch(addProductsMesa({ carrito, id: activeMesa.id - 1 }))
+        dispatch(addProductsMesa({ carrito, id: activeMesa.id - 1, total }))
         dispatch(cleanCarrito())
         return <Navigate to={'/'} />
     }

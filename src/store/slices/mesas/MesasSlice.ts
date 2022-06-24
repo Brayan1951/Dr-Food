@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { initialMesaState } from '../../data/mesasData';
-import { MesaState } from '../../../interfaces/interfaces';
+import { MesaState, Producto } from '../../../interfaces/interfaces';
 export interface MesasStore {
     mesas: MesaState[],
-    activeMesa: MesaState
+    activeMesa: MesaState,
+
 }
 
 const initialState: MesasStore = {
@@ -12,6 +13,7 @@ const initialState: MesasStore = {
         id: 0,
         products: [],
         state: 'vacio',
+        total: 0
     }
 }
 
@@ -24,25 +26,30 @@ export const MesasSlice = createSlice({
 
         },
         addProductsMesa: (state, action) => {
-            const { id, carrito } = action.payload
+            const { id, carrito, total } = action.payload
+            console.log(total);
+
             state.mesas[id].products = [...state.mesas[id].products, ...carrito]
             state.mesas[id].state = 'completo'
-
-
+            state.mesas[id].total += total
 
         },
         deleteProductsMesa: (state, action) => {
-            // const { idMesa, idProduct } = action.payload
-            const temp = state.activeMesa.products.filter(producto => producto !== state.activeMesa.products[action.payload.idProduct])
+            const { idMesa, idProduct } = action.payload
+            const producttemp = state.activeMesa.products[idProduct]
+            const temp = state.activeMesa.products.filter(producto => producto !== producttemp)
             state.activeMesa.products = [...temp]
-            state.mesas[action.payload.idMesa] = state.activeMesa
-            state.mesas[action.payload.idMesa].state = 'vacio'
+            state.mesas[idMesa] = state.activeMesa
+            state.mesas[idMesa].state = 'vacio'
+            state.mesas[idMesa].total -= producttemp.precio
+
         },
         cleanMesa: (state, action) => {
             state.mesas[action.payload.idMesa] = {
                 id: action.payload.idMesa + 1,
                 products: [],
                 state: 'vacio',
+                total: 0
             }
         },
 
