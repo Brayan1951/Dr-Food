@@ -12,6 +12,6 @@ interface Route {
 // const CarritoScreen=lazy(()=>import(/*webpackChunkName:"CarritoScreen"*/'../pages/Carrito/CarritoScreen'))
 
 export const routes: Route[] = [
-    { name: 'Mesas', to: '/', path: '/', Component: MesasScreen },
-    { name: 'Pedidos', to: '/pedidos', path: 'pedidos', Component: PedidosScreen },
+    { name: 'Mesas', to: './', path: './', Component: MesasScreen },
+    { name: 'Pedidos', to: './pedidos', path: './pedidos', Component: PedidosScreen },
 ]

@@ -24,7 +24,7 @@ export const AppRouter = () => {
 
                         ))
                     }
-                    <Route path={'/carrito'} element={<CarritoScreen />} />
+                    <Route path={'./carrito'} element={<CarritoScreen />} />
 
                 </Routes>
 
