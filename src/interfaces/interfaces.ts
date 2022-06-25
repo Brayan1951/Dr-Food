@@ -22,5 +22,14 @@ export interface Producto {
     cremas?: string[];
     agregados?: Agregados[];
     // agregados?: string[];
+
     precio: number;
+}
+
+export interface Excell {
+    id: number,
+    hora: Date,
+    producto: string,
+    precio: number
+
 }

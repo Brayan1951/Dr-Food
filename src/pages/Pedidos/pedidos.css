@@ -1,5 +1,7 @@
 .pedidos {
     height: 100%;
+   
+    overflow-y: scroll;
 }
 
 .pedido_card{
@@ -47,3 +49,20 @@ justify-content: space-around;
     justify-content: center;
     font-size: 30px;
    }
+
+   .btn_pedidos{
+    display: flex;
+
+justify-content: center;
+}
+.btn_pedidos-print{
+    display: flex;
+
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+background-color: rgb(65, 206, 60);
+margin: 10px 30px;
+/* color: white; */
+font-size: 30px;
+}

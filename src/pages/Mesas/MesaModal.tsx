@@ -36,7 +36,7 @@ export const MesaModal = () => {
             <div className='nav_modal-header'>
                 <button disabled={(activeMesa.products.length > 0) ? false : true} onClick={imprimir} className='btn btn-print'>
 
-                    Imprimir Pedidos
+                    Finalizar Mesa
                 </button>
 
                 <h1>Mesa #{activeMesa?.id}</h1>

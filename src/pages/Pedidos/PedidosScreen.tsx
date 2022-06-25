@@ -1,12 +1,57 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
+import { CSVLink, CSVDownload } from "react-csv";
+
+
+import { Excell } from '../../interfaces/interfaces';
 import './pedidos.css'
+
+
+
+
+
 export const PedidosScreen = () => {
 
     const { ventas } = useSelector((state: RootState) => state.ventas)
 
+    let tempArray: Excell[] = []
+    const headers = [
+        { label: "hora", key: "hora" },
+        { label: "id", key: "id" },
+        { label: "producto", key: "producto" },
+        { label: "precio", key: "precio" }
+    ];
+
+
+    const header = [
+        "id",
+        "hora",
+        "producto",
+        "precio"
+    ]
+
+    const imprimir = () => {
+        ventas.forEach((val, id) => {
+            const productos = val.products.map((prev) => ({ id, hora: val.fecha, producto: prev.nombre, precio: prev.precio }))
+
+            productos.map(val => tempArray.push(val))
+
+        })
+        return tempArray
+
+    }
+
+
     return (
         <div className='pedidos'>
+
+            {
+                ventas.length > 0
+                    ?
+                    <CSVLink filename={"Pedidos.csv"} className='btn btn_pedidos-print' data={imprimir()} headers={headers} separator=';'>Descargar Pedidos</CSVLink>
+
+                    : <div className='btn_pedidos'>No hay pedidos</div>
+            }
             <div className='lista_pedidos'>
 
 

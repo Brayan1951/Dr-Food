@@ -27,7 +27,6 @@ export const MesasSlice = createSlice({
         },
         addProductsMesa: (state, action) => {
             const { id, carrito, total } = action.payload
-            console.log(total);
 
             state.mesas[id].products = [...state.mesas[id].products, ...carrito]
             state.mesas[id].state = 'completo'
